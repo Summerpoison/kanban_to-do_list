@@ -4,7 +4,6 @@ Following along with a React tutorial https://medium.com/codex/building-a-to-do-
 # Einsendeaufgaben
 
 1. Erstellen Sie sich ein Repository in Github oder GitLab.
-
 Repository wurde über Github erstellt und über VS Code geklont, dann switch in die Konsole für die Dokumentation.
 ![Git Remote und Git Status](doc_screenshots/080526_2243_gitadd.PNG)
 

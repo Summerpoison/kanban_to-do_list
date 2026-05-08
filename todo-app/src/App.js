@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from "react";
 import './App.css';
 import styled from "styled-components";
 
@@ -28,15 +28,32 @@ const Tasks = styled.div`
 `;
 
 
-
 function App() {
+
+const [input, setInput] = useState("");
+const [todoList, setTodoList] = useState([]);
+const [completedTaskCount, setCompletedTaskCount] = useState(0);
+
+const handleClick = () => {
+  const id = todoList.length + 1;
+  setTodoList((prev) => [
+    ...prev,
+    {
+      id: id,
+      task: input,
+      complete: false,
+    },
+  ]);
+  setInput("");
+};
+
   return (
     <Container>
       <div>
           <h1>WIP Kanban</h1>
           <h2>Todo List</h2>
-          <Text value={input} />
-          <Button>Add</Button>
+          <Text value={input} onInput={(e) =>setInput(e.target.value)} />
+          <Button onClick={() => handleClick()}>Add</Button>
         <Tasks>
           <TaskCount>
             <b>Pending Tasks</b> 

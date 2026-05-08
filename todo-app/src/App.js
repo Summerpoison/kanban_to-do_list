@@ -26,7 +26,10 @@ const TaskCount = styled.span`
 `;
 const Tasks = styled.div`
 `;
-
+const LIST = styled.li`
+    listStyle:"none";
+    text-decoration: "line-through";
+`;
 
 function App() {
 
@@ -47,6 +50,26 @@ const handleClick = () => {
   setInput("");
 };
 
+const handleComplete = (id) => {
+    let list = todoList.map((task) => {
+      let item = {};
+      if (task.id == id) {
+        if (!task.complete){
+            //Task is pending, modifying it to complete and increment the count
+            setCompletedTaskCount(completedTaskCount + 1);
+        } 
+        else {
+            //Task is complete, modifying it back to pending, decrement Complete count
+            setCompletedTaskCount(completedTaskCount - 1);
+        }
+item = { ...task, complete: !task.complete };
+      } else item = { ...task };
+return item;
+    });
+    setTodoList(list);
+  };
+
+
   return (
     <Container>
       <div>
@@ -56,18 +79,31 @@ const handleClick = () => {
           <Button onClick={() => handleClick()}>Add</Button>
         <Tasks>
           <TaskCount>
-            <b>Pending Tasks</b> 
+            <b>Pending Tasks</b> {todoList.length - completedTaskCount}
           </TaskCount>
           <TaskCount>
-            <b>Completed Tasks</b>
+            <b>Completed Tasks</b> {completedTaskCount}
           </TaskCount>
         </Tasks>
         <div>
           <ul>
-              /* List items consisting of tasks will be listed here */
-          </ul>
+            {todoList.map((todo) => {
+              return (
+                <LIST
+                  complete={todo.complete}
+                  id={todo.id}
+                  onClick={() => handleComplete(todo.id)}
+                  style={{
+                    listStyle: "none",
+                    textDecoration: todo.complete && "line-through",
+                  }}
+                >
+                  {todo.task}
+                </LIST>
+              );
+            })}
+          </ul>;
         </div>
-        <Button>Clear</Button>
       </div>
     </Container>
   );

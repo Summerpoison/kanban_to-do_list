@@ -38,6 +38,10 @@ const [todoList, setTodoList] = useState([]);
 const [completedTaskCount, setCompletedTaskCount] = useState(0);
 
 const handleClick = () => {
+  if (!input.trim()) {
+    alert("Enter a task first!");
+    return;
+  }
   const id = todoList.length + 1;
   setTodoList((prev) => [
     ...prev,

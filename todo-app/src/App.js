@@ -19,7 +19,7 @@ const Button = styled.button`
   cursor: pointer;
 `;
 const Text = styled.input`
-  border: 2px solid #000;
+  border: 1px solid #000;
 `;
 const TaskCount = styled.span`
   margin: 10px;

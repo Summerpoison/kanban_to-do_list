@@ -2,33 +2,56 @@ import React, { useState } from "react";
 import './App.css';
 import styled from "styled-components";
 
+
 const Container = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
 `;
 const Button = styled.button`
-  display:inline-block;
+  display: inline-block;
   flex: 1;
   border: none;
-  background-color: teal;
+  background-color: var(--accent);
   color: white;
   height: 30px;
-  width: 50px;
-  border-radius: 2px;
+  width: 100%;
+  border-radius: 4px;
   cursor: pointer;
 `;
 const Text = styled.input`
+<<<<<<< HEAD
   border: 1px solid #000;
 `;
+=======
+  border: 2px solid var(--accent);
+  border-radius: 4px;
+  width: 100%;
+  height: 30px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  `;
+>>>>>>> feature/styling
 const TaskCount = styled.span`
   margin: 10px;
 `;
 const Tasks = styled.div`
+  border: none;
+  margin: 10px 0 10px 0;
 `;
 const LIST = styled.li`
-    listStyle:"none";
-    text-decoration: "line-through";
+  listStyle:"none";
+  text-decoration: "line-through";
+  border: none;
+  background-color: var(--grey-light);
+  margin-bottom: 5px;
+  padding: 5px 10px;
+  border-radius: 4px;
+`;
+
+const TaskList = styled.ul`
+  padding: 0;
+  margin: 0;
 `;
 
 function App() {
@@ -74,6 +97,7 @@ return item;
   };
 
 
+
   return (
     <Container>
       <div>
@@ -90,7 +114,7 @@ return item;
           </TaskCount>
         </Tasks>
         <div>
-          <ul>
+          <TaskList>
             {todoList.map((todo) => {
               return (
                 <LIST
@@ -100,13 +124,14 @@ return item;
                   style={{
                     listStyle: "none",
                     textDecoration: todo.complete && "line-through",
+                    color: todo.complete && "var(--grey-medium)",
                   }}
                 >
                   {todo.task}
                 </LIST>
               );
             })}
-          </ul>;
+          </TaskList>
         </div>
       </div>
     </Container>

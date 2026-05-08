@@ -20,18 +20,13 @@ const Button = styled.button`
   cursor: pointer;
 `;
 const Text = styled.input`
-<<<<<<< HEAD
-  border: 1px solid #000;
-`;
-=======
   border: 2px solid var(--accent);
   border-radius: 4px;
   width: 100%;
   height: 30px;
   box-sizing: border-box;
   margin-bottom: 10px;
-  `;
->>>>>>> feature/styling
+`;
 const TaskCount = styled.span`
   margin: 10px;
 `;

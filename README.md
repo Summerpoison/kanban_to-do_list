@@ -23,6 +23,7 @@ Repository wurde über Github erstellt und über VS Code geklont, dann switch in
 ![Final Git Push](doc_screenshots/090526_0035_gitpush_final.PNG)
 
 6. Erstellen Sie in GitHub einen Pull-Request bezugnehmend auf https://github.com/edlich/education! (was kleines, nützliches, witziges, etc., aber nicht via Shell, sondern via GitHub click!)
+PR für Einsendeaufgabe Versionskontrolle#602
 
 # Optische Änderungen
 
